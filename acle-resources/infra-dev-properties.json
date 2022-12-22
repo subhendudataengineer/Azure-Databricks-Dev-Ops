@@ -1,0 +1,106 @@
+{
+    "project": "databricks",
+    "databases": [
+        {
+            "name":"demo_raw",
+            "location": "abfss://workspacedemo@databricksdiscdev.dfs.core.windows.net"
+        },
+        {
+            "name":"generaldiscovery_fact_r",
+            "location": null
+        },
+        {
+            "name":"generaldiscovery_masterdata_r",
+            "location": null
+        }
+    ],
+    "access_control": [
+        {
+            "name": "#########################",
+            "object_type": "serviceprincipal",
+            "object_id": "###########################",
+            "read_access_db_table": [],
+            "read_access_db": [],
+            "write_access_db_table": [],
+            "write_access_db": [],
+            "adls_access": [
+                {
+                    "storage_account": "databricksdiscdev",
+                    "container": "workspacedemo",
+                    "pattern": "rwx"
+                },
+                {
+                    "storage_account": "databricksdiscdev",
+                    "container": "fact",
+                    "pattern": "r-x"
+                },
+                {
+                    "storage_account": "databricksdiscdev",
+                    "container": "masterdata",
+                    "pattern": "r-x"
+                }
+            ]
+
+        },
+        {
+            "name": "DEMO-D-DEVELOPER",
+            "object_type": "group",
+            "object_id": "$$$$$$$$$$$$$$$$$$$$$$$$$",
+            "read_access_db_table": [],
+            "read_access_db": [
+                "generaldiscovery_fact_r",
+                "generaldiscovery_masterdata_r"
+            ],
+            "write_access_db_table": [],
+            "write_access_db": [
+                "demo_raw"
+            ],
+            "adls_access": [
+                {
+                    "storage_account": "databricksdiscdev",
+                    "container": "workspacedemo",
+                    "pattern": "rwx"
+                }
+            ]
+        },
+        {
+            "name": "DEMO-D-ANALYST",
+            "object_type": "group",
+            "object_id": "$$$$$$$$$$$$$$$$$$$$$$$$$",
+            "read_access_db_table": [],
+            "read_access_db": [
+                "generaldiscovery_fact_r",
+                "generaldiscovery_masterdata_r",
+                "demo_raw"
+            ],
+            "write_access_db_table": [],
+            "write_access_db": [],
+            "adls_access": []
+        },
+        {
+            "name": "#########################",
+            "description": "DEMO-D-JOBRUN-SP",
+            "object_type": "serviceprincipal",
+            "object_id": "###########################",
+            "read_access_db_table": [],
+            "read_access_db": [
+                "generaldiscovery_masterdata_r",
+                "generaldiscovery_fact_r"
+            ],
+            "write_access_db_table": [],
+            "write_access_db": [
+                "demo_raw"
+            ],
+            "adls_access": [
+                {
+                    "storage_account": "databricksdiscdev",
+                    "container": "workspacedemo",
+                    "pattern": "rwx"
+                }
+            ]
+
+        }
+    ]
+    
+}
+        
