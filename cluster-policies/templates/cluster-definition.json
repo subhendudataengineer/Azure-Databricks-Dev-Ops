@@ -1,0 +1,66 @@
+{
+    "spark_conf.spark.databricks.acl.dfAclsEnabled": {
+        "type": "fixed",
+        "value": "true"
+    },
+    "spark_conf.spark.databricks.cluster.profile": {
+        "type": "fixed",
+        "value": "serverless"
+    },
+    "spark_conf.spark.databricks.pyspark.enableProcessIsolation": {
+        "type": "fixed",
+        "value": "true"
+    },
+    "spark_conf.fs.azure.account.auth.type": {
+        "type": "fixed",
+        "value": "OAuth"
+    },
+    "spark_conf.fs.azure.account.oauth.provider.type": {
+        "type": "fixed",
+        "value": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider"
+    },
+    "spark_conf.fs.azure.account.oauth2.client.endpoint": {
+        "type": "fixed",
+        "value": "https://login.microsoftonline.com/directory-id-you-can-find-in-azure-keyvault/oauth2/token"
+    },
+    "spark_conf.fs.azure.account.oauth2.client.id": {
+        "type": "fixed",
+        "value": "{{secrets/infra-proj-scopes/ProjectDatabricksApplicationID}}"
+    },
+    "spark_conf.fs.azure.account.oauth2.client.secret": {
+        "type": "fixed",
+        "value": "{{secrets/infra-proj-scopes/ProjectDatabricksClientSecret}}"
+    },
+    "spark_conf.spark.hadoop.javax.jdo.option.ConnectionDriverName": {
+        "type": "fixed",
+        "value": "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    },
+    "spark_conf.spark.hadoop.javax.jdo.option.ConnectionURL": {
+        "type": "fixed",
+        "value": "jdbc:sqlserver://azsqlelsa{-env-}.database.windows.net.:1433;database={-hive_db-}"
+    },
+    "spark_conf.spark.hadoop.javax.jdo.option.ConnectionUserName": {
+        "type": "fixed",
+        "value": "{{secrets/infra-proj-scopes/AzureSQLDB-HiveMetastoreAdminuser}}"
+    },
+    "spark_conf.spark.hadoop.javax.jdo.option.ConnectionPassword": {
+        "type": "fixed",
+        "value": "{{secrets/infra-proj-scopes/AzureSQLDB-HiveMetastorePassword}}"
+    },
+    "spark_conf.spark.sql.hive.metastore.version": {
+        "type": "fixed",
+        "value": "2.3.7"
+    },
+    "spark_conf.spark.sql.hive.metastore.jars": {
+        "type": "fixed",
+        "value": "builin"
+    },
+    "autotermination_minutes": {
+        "type": "unlimited",
+        "defaultvalue": 120
+    },
+    "custom_tags.ResouceClass": {
+        "type": "fixed",
+        "value": "Serverless"
+    }
+}
