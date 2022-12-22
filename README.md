@@ -1,3 +1,8 @@
+# Job deploy Policy and associate job policy
+# Acl permission
+# Associate group with the deployed job
+# Add Service Principle in the workspace
+# Syncronize users between Azure AD and Databricks Group 
 # Azure-Databricks-Dev-Ops
 Complete end to end sample of doing DevOps with Azure Databricks.  This is based on working with lots of customers who have requested that they can reference a documented apporach. The included code utilizes KeyVault for each environement and uses Azure AD authorization tokens to call the Databricks REST API.
 
